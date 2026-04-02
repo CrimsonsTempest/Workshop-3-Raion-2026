@@ -11,7 +11,7 @@ public class EnemyScript : effectScript
 
     public override void InteractTrigger()
     {
-      
+      Attack();
     }
 
     void Attack()
