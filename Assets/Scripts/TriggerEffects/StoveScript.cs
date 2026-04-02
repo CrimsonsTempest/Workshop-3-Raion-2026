@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class StoveScript : MonoBehaviour
+public class StoveScript : EffectScript
 {
     public float knockbackForce = 5f;
     public bool on = false;
@@ -12,6 +13,10 @@ public class StoveScript : MonoBehaviour
     private bool canBurn = true;
 
 
+    public override void EffectTrigger()
+    {
+turnOnStove();
+    }
 
     void turnOnStove()
     {

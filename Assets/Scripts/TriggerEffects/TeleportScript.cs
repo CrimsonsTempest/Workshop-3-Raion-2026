@@ -1,12 +1,18 @@
 using UnityEngine;
 
-public class TeleportScript : MonoBehaviour
+public class TeleportScript : EffectScript
 {
     
     public GameObject to;
     public SoundtrackScript sts;
     public SoundEffectScript ses;
 
+
+
+    public override void EffectTrigger()
+    {
+        Teleport();
+    }
     void Teleport()
     {
               GameObject player = GameObject.FindGameObjectWithTag("Player");

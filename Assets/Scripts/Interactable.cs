@@ -120,11 +120,11 @@ public class HoldInteractable : MonoBehaviour
         }
 
 
-    if(false){
-            // disini lakukan panggilan berbasis oop menggunakan   GetComponent<>(), misalnya dibawah
-            var effectScript= GetComponent<Null>();
+    
+            EffectScript effectScript= GetComponent<EffectScript>();
+            effectScript.EffectTrigger();
 
-    }
+   
 
 
 

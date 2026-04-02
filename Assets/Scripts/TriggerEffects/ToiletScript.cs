@@ -1,11 +1,15 @@
 using UnityEngine;
 
-public class ToiletScript : MonoBehaviour
+public class ToiletScript : EffectScript
 {
     LogicScript ls;
     public SoundEffectScript ses;
 
 
+    public override void EffectTrigger()
+    {
+DrinkFromToilet();
+    }
      void DrinkFromToilet()
     {
         ls = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();

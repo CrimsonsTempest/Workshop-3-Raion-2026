@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : EffectScript
 {
     LogicScript ls;
     public bool beingAttacked = false;
@@ -9,7 +9,10 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private Animator animator;
     public GameObject QTE;
 
-
+    public override void EffectTrigger()
+    {
+        Attack();
+    }
 
     void Attack() //main effect
     {

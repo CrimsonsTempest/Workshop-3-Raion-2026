@@ -1,10 +1,14 @@
 using UnityEngine;
 
-public class pintuScript : MonoBehaviour
+public class pintuScript : EffectScript
 {
     [SerializeField] GameObject IsiToilet;
     [SerializeField] SoundEffectScript ses;
 
+    public override void EffectTrigger()
+    {
+        bukaPintu() ; 
+}
     void bukaPintu()
     {
          ses.pintuEffect();

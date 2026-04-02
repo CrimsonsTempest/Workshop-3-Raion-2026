@@ -13,7 +13,6 @@ public class EndingScript : MonoBehaviour
     [SerializeField] GameObject Toilet;
     [SerializeField] GameObject Stove;
     [SerializeField] GameObject Catnip;
-    [SerializeField] GameObject Mating;
     [SerializeField] GameObject Goodboy;
     [SerializeField] GameObject Missing;
     [SerializeField] GameObject LoseFight;
@@ -32,10 +31,6 @@ public class EndingScript : MonoBehaviour
         {
             death = stringdeath;
         }
-
-
-
-
         if (death == "High")
         {
             Catnip.SetActive(true);
@@ -48,10 +43,7 @@ public class EndingScript : MonoBehaviour
         {
             Stove.SetActive(true);
         }
-        else if (death == "Mating")
-        {
-            Mating.SetActive(true);
-        }
+      
         else if (death == "Good Boy")
         {
             Goodboy.SetActive(true);

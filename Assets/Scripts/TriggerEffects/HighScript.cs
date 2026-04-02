@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-public class HighScript : MonoBehaviour
+public class HighScript : EffectScript
 {
     public Volume volume;
 
@@ -17,8 +17,12 @@ public class HighScript : MonoBehaviour
     [SerializeField] EndingImagesSO end;
     [SerializeField] SoundEffectScript ses;
 
- 
 
+
+    public override void EffectTrigger()
+    {
+       OneMoreLick();
+    }
     public void OneMoreLick() //main effect
     {
         

@@ -1145,10 +1145,10 @@ MonoBehaviour:
   safeZone: {fileID: 1474512612}
   moveSpeed: 2000
   QTE: {fileID: 1318639204}
-  animator: {fileID: 0}
+  animator: {fileID: 1468930651}
   animatorPlayer: {fileID: 3340507467102694172}
   SlashEffect: {fileID: 5438536448247558244, guid: b3aba008175e0b74fa8fd7382d6e2d49, type: 3}
-  enemy: {fileID: 0}
+  enemy: {fileID: 1468930650}
 --- !u!1 &301703545
 GameObject:
   m_ObjectHideFlags: 0
