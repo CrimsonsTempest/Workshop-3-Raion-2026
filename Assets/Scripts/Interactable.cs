@@ -1,0 +1,133 @@
+
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HoldInteractable : MonoBehaviour
+{
+    public LogicScript logicScript;
+    public float holdDuration = 3f;  
+    private float holdProgress = 0f;  
+
+    public Slider progressBar; 
+    private bool isPlayerInRange = false; 
+    public TextMeshProUGUI InteractPrompt;
+    private bool isComplete=false;
+    public ChangeSprite changeSprite;
+    public bool TwoWayInteract = true;
+    public string name;
+
+
+    void Start()
+    {
+        changeSprite = GetComponent<ChangeSprite>();
+        logicScript = FindFirstObjectByType<LogicScript>();
+
+        if (progressBar != null)
+        {
+            progressBar.gameObject.SetActive(false); 
+            progressBar.maxValue = holdDuration; 
+            progressBar.value = holdProgress; 
+        }
+        if (InteractPrompt != null)
+        {
+            InteractPrompt.gameObject.SetActive(false);
+        }
+
+
+        if (string.IsNullOrEmpty(name))
+        {
+            name = gameObject.name;
+        } ;
+    }
+
+    void Update()
+    {
+        if (isPlayerInRange && !isComplete ) 
+        {
+            if (Input.GetKey(KeyCode.E)) 
+            {
+                holdProgress += Time.deltaTime; 
+                if (progressBar != null)
+                    progressBar.value = holdProgress; 
+
+                if (holdProgress >= holdDuration)
+                {
+                    if (!TwoWayInteract)
+                    {
+                        isComplete = true;
+                    }
+                    Interact();
+                    
+                }
+            }
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                holdProgress = 0;
+                  if (progressBar != null)
+                    progressBar.value = holdProgress; 
+            }
+        }
+
+
+        
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !isComplete)
+        {
+            isPlayerInRange = true;
+            if (progressBar != null)
+                progressBar.gameObject.SetActive(true);
+                
+                if (InteractPrompt != null)
+            {
+                InteractPrompt.gameObject.SetActive(true);
+            }
+
+        }
+        
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRange = false;
+            if (progressBar != null)
+                progressBar.gameObject.SetActive(false); 
+                
+                if (InteractPrompt != null)
+            {
+                InteractPrompt.gameObject.SetActive(false);
+            }
+            
+        }
+    }
+
+    void Interact()
+    {
+        if (progressBar != null)
+            progressBar.value=0;
+
+
+        holdProgress = 0f;
+        if (changeSprite != null)
+        {
+            changeSprite.toggleSprite();
+        }
+
+
+        {
+            // disini lakukan panggilan berbasis oop menggunakan   GetComponent<>(), misalnya dibawah
+            var effectScript= GetComponent<effectScript>();
+            effectScript.InteractTrigger();
+
+        }
+
+
+
+    }
+}
