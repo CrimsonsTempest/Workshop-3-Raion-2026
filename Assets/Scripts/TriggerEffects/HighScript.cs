@@ -1,0 +1,69 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+
+public class HighScript : MonoBehaviour
+{
+    public Volume volume;
+
+    private Vignette vignette;
+    private Bloom bloom;
+    private ChromaticAberration chromatic;
+    private LensDistortion lensDistortion;
+    private DepthOfField depthOfField;
+    [SerializeField] int CatnipLick = 0;
+    LogicScript ls;
+    [SerializeField] EndingImagesSO end;
+    [SerializeField] SoundEffectScript ses;
+
+ 
+
+    public void OneMoreLick() //main effect
+    {
+        
+        ses.lickEffect();
+
+        if (vignette != null)
+            vignette.intensity.value += 0.05f;
+        if (bloom != null)
+            bloom.intensity.value += 0.1f;
+
+        CatnipLick++;
+
+        if (CatnipLick == 8 && depthOfField != null)
+        {
+            depthOfField.active = true;
+            depthOfField.mode.value = DepthOfFieldMode.Gaussian;
+        }
+        if (CatnipLick >= 10)
+        {
+            end.ending = "High";
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+   
+
+
+   void Start()
+    {
+        volume.profile.TryGet(out vignette);
+        volume.profile.TryGet(out bloom);
+        volume.profile.TryGet(out chromatic);
+        volume.profile.TryGet(out lensDistortion);
+        volume.profile.TryGet(out depthOfField);
+        ls = FindAnyObjectByType<LogicScript>();
+    }
+
+    void Update()
+    {
+        if (CatnipLick >= 5 && lensDistortion != null)
+        {
+            lensDistortion.intensity.value = Mathf.Sin(Time.time * 2f) * 0.4f;
+            if (chromatic != null)
+                chromatic.intensity.value = Mathf.Abs(Mathf.Sin(Time.time));
+        }
+    }
+    
+    }
