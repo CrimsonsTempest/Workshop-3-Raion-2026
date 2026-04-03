@@ -28,11 +28,10 @@ public class LogicScript : MonoBehaviour
     public EnemyScript enemyScript;
     [SerializeField] private Animator enemyAnimator;
     public PlayerMovement playerMovement;
-
+    public bool insideHouse=true;
 
     public TextMeshProUGUI DisplayTime;
 
-    private bool isPlayerInTrigger = false; // Add this field
 
     public void HealthEdit(int x, string sumber)
     {
@@ -87,22 +86,7 @@ public class LogicScript : MonoBehaviour
         enemyFillrect.sizeDelta = size;
     }
 
-    // These methods should be on the trigger collider object, or you can move them here if LogicScript is attached to the trigger
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) // Make sure your player GameObject has the "Player" tag
-        {
-            isPlayerInTrigger = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInTrigger = false;
-        }
-    }
+ 
 
     private void Update()
     {
@@ -125,7 +109,7 @@ public class LogicScript : MonoBehaviour
 
     private void end()
     {
-        if (isPlayerInTrigger)
+        if (!insideHouse)
         {
             es.ending = "Missing";
         }
