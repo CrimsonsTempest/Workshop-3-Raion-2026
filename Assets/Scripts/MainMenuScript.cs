@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -7,19 +8,16 @@ public class MainMenuScript : MonoBehaviour
 
 
     public Button playButton;
-
     public Button exitButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
-        playButton.onClick.AddListener(Play);
-        exitButton.onClick.AddListener(Exit);
+        //subscribe pakai Event.AddListener(Method);
     }
 
     void OnDisable()
     {
-        playButton.onClick.RemoveListener(Play);
-        playButton.onClick.RemoveListener(Exit);
+    //unsubscribe pakai Event.RemoveListener(Method);
 
     }
 
