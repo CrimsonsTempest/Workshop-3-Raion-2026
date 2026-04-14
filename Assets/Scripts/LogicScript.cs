@@ -71,6 +71,8 @@ public class LogicScript : MonoBehaviour
         timerActive = true;
     }
 
+
+
     void updatebar() { 
         float ratio = (float)health / maxHealth;
         var size = fillrect.sizeDelta;
@@ -80,6 +82,7 @@ public class LogicScript : MonoBehaviour
 
     void updateEnemyBar()
     {
+        Debug.Log("Updating Enemy Health Bar: " + enemyHealth + "/" + EnemyMaxHealth);
         float ratio = (float)enemyHealth / EnemyMaxHealth;
         var size = enemyFillrect.sizeDelta;
         size.x = ratio * 110f;
