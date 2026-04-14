@@ -10,15 +10,7 @@ public class MainMenuScript : MonoBehaviour
     public Button playButton;
     public Button exitButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
-    {
-
-       
-       
-
-       
-       
-    }
+    
     void OnEnable()
     {
 
@@ -40,8 +32,7 @@ public class MainMenuScript : MonoBehaviour
         }
 
         
-        playButton?.onClick.AddListener(Play);
-        exitButton?.onClick.AddListener(Exit);
+  
     }
 
     void OnDisable()
