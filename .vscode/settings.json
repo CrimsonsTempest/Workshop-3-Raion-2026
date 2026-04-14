@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "Catting-Around.slnx"
+    "dotnet.defaultSolution": "WorkshopTemplate_3_2026_Polymorph_Unityevents.slnx"
 }
