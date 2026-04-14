@@ -12,12 +12,34 @@ public class MainMenuScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        playButton = GameObject.Find("Play")?.GetComponent<Button>();
-        exitButton = GameObject.Find("Exit")?.GetComponent<Button>();
-    }
 
+       
+       
+
+       
+       
+    }
     void OnEnable()
     {
+
+        if (exitButton==null){
+
+             var ExitGO = GameObject.Find("Exit");
+
+             if (ExitGO != null)
+                exitButton = ExitGO.GetComponent<Button>();
+        
+        }
+
+        if (playButton == null)
+        {
+             var PlayGO = GameObject.Find("Play");
+        if (PlayGO != null)       {
+            playButton = PlayGO.GetComponent<Button>();
+        }
+        }
+
+        
         playButton?.onClick.AddListener(Play);
         exitButton?.onClick.AddListener(Exit);
     }
