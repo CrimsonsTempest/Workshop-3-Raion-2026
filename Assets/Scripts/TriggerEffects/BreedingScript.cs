@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BreedingScript : MonoBehaviour
+public class BreedingScript : EffectScript
 {
 
 
@@ -15,6 +15,10 @@ public class BreedingScript : MonoBehaviour
     public EndingImagesSO so;
     
 
+    public override void EffectTrigger()
+    {
+        Breed();
+        }
 
     public void Breed() // Main method
     {
@@ -37,4 +41,7 @@ public class BreedingScript : MonoBehaviour
 
         }
     }
+
+
+
 }
