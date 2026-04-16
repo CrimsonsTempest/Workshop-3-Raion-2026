@@ -31,6 +31,7 @@ public class LogicScript : MonoBehaviour
     public bool insideHouse=true;
 
     public TextMeshProUGUI DisplayTime;
+    public GameObject wall;
 
 
     public void HealthEdit(int x, string sumber)
@@ -54,6 +55,10 @@ public class LogicScript : MonoBehaviour
             enemyScript.beingAttacked = false;
             enemyAnimator.SetTrigger("Enemy Dead");
             playerMovement.canMove = true;
+            if (wall != null)
+            {
+                wall.SetActive(false); 
+            }
             
         }
 
