@@ -17,7 +17,6 @@ public class EndingScript : MonoBehaviour
     [SerializeField] GameObject Goodboy;
     [SerializeField] GameObject Missing;
     [SerializeField] GameObject LoseFight;
-    [SerializeField] GameObject Mating;
 
     [SerializeField] EndingImagesSO so;
 
