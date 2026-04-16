@@ -43,7 +43,10 @@ public class EndingScript : MonoBehaviour
         {
             Stove.SetActive(true);
         }
-      
+        else if (death == "Mating")
+        {
+            Mating.SetActive(true);
+        }
         else if (death == "Good Boy")
         {
             Goodboy.SetActive(true);
