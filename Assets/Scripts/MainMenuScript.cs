@@ -22,7 +22,6 @@ public class MainMenuScript : MonoBehaviour
                 exitButton = ExitGO.GetComponent<Button>();
         
         }
-
         if (playButton == null)
         {
              var PlayGO = GameObject.Find("Play");
@@ -31,7 +30,9 @@ public class MainMenuScript : MonoBehaviour
         }
         }
 
-        
+            //subscribe pakai Event.Add(Method);
+            // event di button namanya onClick
+
   
     }
 
